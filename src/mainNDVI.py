@@ -2,18 +2,23 @@
 
 #PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin:/bin:/home/pi/Exjobb/ndviMachine/src/
 
+# this repo PATH : /home/pi/Camera/code/repo/
+
+
 from takePicture import TakePicture
 from imgPreProcess import PreProcess
-from cloudUpload import CloudUpload
+# from cloudUpload import CloudUpload
 import matplotlib
 import imgNDVIProcess 
 import os
 import time
 import signal
 
+path = '/home/pi/Camera/code/repo/'
+
 matplotlib.use('Agg')
 
-filePath = '/home/pi/ndviMachine/src'
+filePath = path+'/ndviMachine/src'
 
 
 camera = TakePicture()
@@ -36,8 +41,8 @@ while not os.path.exists(filePath+'/output/'+processedImgFilename):
     print("Fil processeras")
     time.sleep(5)
 
-cloudUpload = CloudUpload(filePath,processedImgFilename)
-cloudUpload.upload()
+# cloudUpload = CloudUpload(filePath,processedImgFilename)
+# cloudUpload.upload()
 
 
 

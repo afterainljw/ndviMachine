@@ -5,6 +5,8 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 
+path = '/home/pi/Camera/code/repo/'
+
 colors =[(1.0000, 1.0000, 1.0000), (0.9804, 0.9804, 0.9804), (0.9647, 0.9647, 0.9647), 
 (0.9490, 0.9490, 0.9490), (0.9333, 0.9333, 0.9333), (0.9137, 0.9137, 0.9137),
 (0.8980, 0.8980, 0.8980), (0.8824, 0.8824, 0.8824), (0.8667, 0.8667, 0.8667),
@@ -109,7 +111,7 @@ def ndvi(image,processedImgFilename,imageOutPath):
     arrNDVI = redBlueDiff/redBlueSum
     
 
-    plt.imsave('/home/pi/ndviMachine/src/ndvi/'+processedImgFilename,arrNDVI, vmin=-1.0,vmax=1.0)
+    plt.imsave(path+'/ndviMachine/src/ndvi/'+processedImgFilename,arrNDVI, vmin=-1.0,vmax=1.0)
 
     fastiecm=LinearSegmentedColormap.from_list('mylist', colors) 
     plt.imsave(imageOutPath,arrNDVI,cmap=fastiecm, vmin=-1.0, vmax=1.0)
